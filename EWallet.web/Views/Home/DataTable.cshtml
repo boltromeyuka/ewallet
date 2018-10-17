@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EWallet.viewModels.OperationViewModel>
+
+@{
+    Layout = null;
+}
+
+<table class="table">
+    <tr>
+        <th class="sortable" data-sort-property="CategoryName" data-sort-type="0">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th class="sortable" data-sort-property="CurrencyName" data-sort-type="0">
+            @Html.DisplayNameFor(model => model.CurrencyName)
+        </th>
+        <th class="sortable" data-sort-property="Amount" data-sort-type="0">
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th class="sortable" data-sort-property="CreateDate" data-sort-type="0">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        @*<th></th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="@((int)item.OperationType==0 ? "pos" : "neg")">
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrencyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <!--<td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>-->
+        </tr>
+    }
+
+</table>
+

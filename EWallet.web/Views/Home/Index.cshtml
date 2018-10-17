@@ -1,0 +1,20 @@
+﻿@model IEnumerable<EWallet.viewModels.OperationViewModel>
+
+@{
+    ViewBag.Title = "Кошелек";
+}
+
+<h2>Операции</h2>
+
+<p>
+    @Html.ActionLink("Добавить поступление", "Create", new { type = 0 }) |
+    @Html.ActionLink("Добавить трату", "Create", new { type = 1 })
+</p>
+
+@{Html.RenderAction("Search");}
+
+<div class="data_table">
+    @{
+        Html.RenderPartial("DataTable", Model);
+    }
+</div>

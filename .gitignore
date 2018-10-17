@@ -1,0 +1,8 @@
+/packages/*
+!packages/repositories.config
+!packages/Microsoft.Bcl*
+/**/bin/
+/**/obj/
+/**/*.suo
+/**/*.user
+/.vs/OnlineStore/v15/Server/sqlite3

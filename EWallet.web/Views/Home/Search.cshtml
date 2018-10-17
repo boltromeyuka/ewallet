@@ -1,0 +1,33 @@
+﻿@model EWallet.viewModels.SearchOptionsViewModel
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Search", "Home", FormMethod.Post, new { id="searchForm"}))
+{
+    @Html.AntiForgeryToken()  
+
+    <table class="table search">
+        <tr>
+            <th>
+                @Html.DropDownListFor(m=>m.CategoryId, Model.Categories, htmlAttributes: new { @class = "form-control" })                
+            </th>
+            <th>
+                @Html.DropDownListFor(m => m.CurrencyId, Model.Currencies, htmlAttributes: new { @class = "form-control" })
+            </th>
+            <th>
+                @Html.EditorFor(m=>m.Amount, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+                @Html.ValidationMessageFor(m => m.Amount, "", new { @class = "text-danger" })
+            </th>
+            <th>
+
+            </th>
+            <th>
+                @Html.EditorFor(m=>m.CreateDate, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+            </th>
+            @*<th></th>*@
+        </tr>
+
+    </table>
+}
